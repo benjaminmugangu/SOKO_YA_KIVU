@@ -1,0 +1,129 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { ShoppingCart, Bell, Search, ChevronDown, ShieldCheck, User, LogIn, Store, Settings, LogOut, LayoutGrid } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  // Close dropdown on route change
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
+
+  return (
+    <div className="w-full">
+      {/* Top Banner */}
+      <div className="bg-[#003B5C] py-2 text-white text-[10px] font-bold text-center flex items-center justify-center gap-6 overflow-hidden">
+        <div className="flex items-center gap-2">
+          <ShieldCheck className="w-3 h-3" />
+          SECURE ESCROW: FUNDS HELD SAFELY UNTIL YOU CONFIRM DELIVERY
+        </div>
+        <div className="hidden md:flex items-center gap-4 border-l border-white/20 pl-6">
+          <span>VERIFIED LOGISTICS</span>
+          <span>MOBILE MONEY INTEGRATED</span>
+        </div>
+      </div>
+
+      {/* Main Nav */}
+      <nav className="bg-white border-b border-gray-200 py-4 shadow-sm">
+        <div className="container mx-auto px-4 flex items-center justify-between gap-8">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <div className="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+               <ShieldCheck className="w-6 h-6" />
+            </div>
+            <span className="text-xl font-display font-black text-[#003B5C] tracking-tight">SOKO YA KIVU</span>
+          </Link>
+
+          {/* Search */}
+          <div className="flex-1 max-w-2xl hidden md:flex items-center group">
+            <div className="flex-1 relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Search for electronics, local crafts, fashion..." 
+                className="w-full bg-gray-50 border border-gray-200 border-r-0 rounded-l-xl pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all"
+              />
+            </div>
+            <button className="bg-brand-primary text-white px-8 py-2.5 rounded-r-xl font-bold text-sm hover:bg-brand-primary-dark transition-colors">
+              Search
+            </button>
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-5">
+            <Link href="/seller" className="relative text-gray-500 hover:text-brand-primary transition-colors hidden sm:block">
+              <Store className="w-5 h-5" />
+            </Link>
+            <button className="relative text-gray-500 hover:text-brand-primary transition-colors">
+              <Bell className="w-5 h-5" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full" />
+            </button>
+            <Link href="/cart" className="relative group flex items-center gap-2">
+              <div className="relative">
+                <ShoppingCart className="w-5 h-5 text-gray-500 group-hover:text-brand-primary transition-colors" />
+                <span className="absolute -top-2 -right-2 bg-brand-primary text-white text-[10px] font-black px-1.5 py-0.5 rounded-full border-2 border-white">
+                  2
+                </span>
+              </div>
+            </Link>
+
+            {/* Account Dropdown */}
+            <div className="relative" ref={menuRef}>
+              <button 
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="flex items-center gap-2 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full text-sm font-bold text-gray-700 hover:bg-gray-100 transition-all"
+              >
+                <div className="w-6 h-6 bg-brand-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-[10px] text-brand-primary font-bold">JD</span>
+                </div>
+                <span className="hidden sm:inline">Mon Compte</span>
+                <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${menuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {menuOpen && (
+                <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-gray-100 rounded-2xl shadow-2xl shadow-gray-200/50 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="px-4 py-3 border-b border-gray-100">
+                    <p className="text-sm font-black text-[#1E293B]">Jean Dupont</p>
+                    <p className="text-[10px] text-gray-400 font-medium">jean@email.com</p>
+                  </div>
+                  <Link href="/seller" className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors">
+                    <Store className="w-4 h-4 text-gray-400" />
+                    Dashboard Vendeur
+                  </Link>
+                  <Link href="/admin" className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors">
+                    <LayoutGrid className="w-4 h-4 text-gray-400" />
+                    Admin Panel
+                  </Link>
+                  <Link href="/auth/kyc" className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors">
+                    <ShieldCheck className="w-4 h-4 text-gray-400" />
+                    Vérification KYC
+                  </Link>
+                  <div className="border-t border-gray-100 mt-1" />
+                  <Link href="/auth/login" className="flex items-center gap-3 px-4 py-3 text-sm text-red-500 hover:bg-red-50 font-medium transition-colors">
+                    <LogOut className="w-4 h-4" />
+                    Se déconnecter
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
+}
