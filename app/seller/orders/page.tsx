@@ -5,34 +5,28 @@ import {
   Search, 
   Bell, 
   MessageSquare, 
-  Download, 
   Printer, 
   MoreVertical, 
-  ChevronRight,
-  TrendingUp,
   ShieldCheck,
   Truck,
   Wallet,
-  CheckCircle2,
-  Clock,
-  Filter,
   Plus,
   ChevronDown
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const orderStats = [
-  { label: 'Pending Shipment', value: '24 Orders', icon: Printer, trend: '+12% vs last week', color: 'text-orange-500', bg: 'bg-orange-500/10' },
-  { label: 'Funds in Escrow', value: 'CDF 1,240,000', icon: ShieldCheck, trend: 'Locked Funds', color: 'text-blue-500', bg: 'bg-blue-500/10' },
-  { label: 'Active Shipments', value: '42 Orders', icon: Truck, trend: 'In Transit', color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
-  { label: "Today's Revenue", value: 'CDF 850,500', icon: Wallet, trend: 'Released', color: 'text-green-500', bg: 'bg-green-500/10' },
+  { label: 'Expédition en Attente', value: '24 Commandes', icon: Printer, trend: '+12% vs sem. dernière', color: 'text-orange-500', bg: 'bg-orange-500/10' },
+  { label: 'Fonds en Séquestre', value: 'CDF 1,240,000', icon: ShieldCheck, trend: 'Fonds Bloqués', color: 'text-blue-500', bg: 'bg-blue-500/10' },
+  { label: 'Expéditions Actives', value: '42 Commandes', icon: Truck, trend: 'En Transit', color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
+  { label: "Revenu du Jour", value: 'CDF 850,500', icon: Wallet, trend: 'Libéré', color: 'text-green-500', bg: 'bg-green-500/10' },
 ];
 
 const dashboardOrders = [
-  { id: '#DRC-98421', date: 'Oct 24, 14:20', customer: 'Samuel Kabasele', location: 'Goma, DRC', method: 'M-Pesa (Mobile Money)', amount: 'CDF 150,000', status: 'Pending Shipment', statusColor: 'bg-orange-500/10 text-orange-500' },
-  { id: '#DRC-98418', date: 'Oct 24, 11:05', customer: 'Marie Tshisekedi', location: 'Lubumbashi, DRC', method: 'Airtel Money', amount: 'CDF 45,000', status: 'In Transit', statusColor: 'bg-blue-500/10 text-blue-500' },
-  { id: '#DRC-98402', date: 'Oct 23, 16:45', customer: 'David Lumumba', location: 'Bukavu, DRC', method: 'Card Payment', amount: 'CDF 280,000', status: 'Funds in Escrow', statusColor: 'bg-cyan-500/10 text-cyan-500' },
-  { id: '#DRC-98395', date: 'Oct 23, 09:12', customer: 'Esperance Mwamba', location: 'Matadi, DRC', method: 'Orange Money', amount: 'CDF 12,500', status: 'Completed', statusColor: 'bg-green-500/10 text-green-500' },
+  { id: '#DRC-98421', date: '24 Oct, 14:20', customer: 'Samuel Kabasele', location: 'Goma, RDC', method: 'M-Pesa (Mobile Money)', amount: 'CDF 150,000', status: 'EN ATTENTE', statusColor: 'bg-orange-500/10 text-orange-500' },
+  { id: '#DRC-98418', date: '24 Oct, 11:05', customer: 'Marie Tshisekedi', location: 'Lubumbashi, RDC', method: 'Airtel Money', amount: 'CDF 45,000', status: 'EN TRANSIT', statusColor: 'bg-blue-500/10 text-blue-500' },
+  { id: '#DRC-98402', date: '23 Oct, 16:45', customer: 'David Lumumba', location: 'Bukavu, RDC', method: 'Paiement Carte', amount: 'CDF 280,000', status: 'SÉQUESTRE', statusColor: 'bg-cyan-500/10 text-cyan-500' },
+  { id: '#DRC-98395', date: '23 Oct, 09:12', customer: 'Esperance Mwamba', location: 'Matadi, RDC', method: 'Orange Money', amount: 'CDF 12,500', status: 'TERMINÉ', statusColor: 'bg-green-500/10 text-green-500' },
 ];
 
 export default function OrderManagementPage() {
@@ -45,7 +39,7 @@ export default function OrderManagementPage() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input 
                 type="text" 
-                placeholder="Search Order ID, Buyer Name or Mobile Number..." 
+                placeholder="Rechercher ID, Nom client ou numéro mobile..." 
                 className="w-full bg-[#131926] border border-white/10 rounded-xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
            </div>
@@ -61,14 +55,14 @@ export default function OrderManagementPage() {
            </button>
            <button className="bg-[#1476D1] text-white px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-[#0E5AA1] transition-all">
               <Plus className="w-4 h-4 shadow-lg shadow-[#1476D1]/20" />
-              Create Listing
+              Créer une Annonce
            </button>
         </div>
       </div>
 
       <div className="mb-12">
-        <h1 className="text-3xl font-bold tracking-tight mb-2">Order Management</h1>
-        <p className="text-gray-500 text-sm">Monitor shipments, escrow payments, and customer satisfaction.</p>
+        <h1 className="text-3xl font-bold tracking-tight mb-2">Gestion des Commandes</h1>
+        <p className="text-gray-500 text-sm">Suivi des envois, paiements escrow et satisfaction client.</p>
       </div>
 
       {/* Stats Grid */}
@@ -99,7 +93,7 @@ export default function OrderManagementPage() {
       <div className="bg-[#131926] rounded-[32px] border border-white/5 overflow-hidden shadow-2xl">
          {/* Tabs */}
          <div className="px-8 pt-8 flex items-center gap-8 border-b border-white/5">
-            {['All Orders (156)', 'Pending Shipment (24)', 'In Transit (42)', 'Funds in Escrow (85)', 'Completed (5)'].map((tab, idx) => (
+            {['Toutes (156)', 'En attente (24)', 'En transit (42)', 'Séquestre (85)', 'Terminées (5)'].map((tab, idx) => (
               <button key={tab} className={`pb-4 px-2 text-sm font-bold transition-all border-b-2 ${idx === 0 ? 'border-blue-500 text-blue-500' : 'border-transparent text-gray-500 hover:text-white'}`}>
                 {tab}
               </button>
@@ -122,12 +116,12 @@ export default function OrderManagementPage() {
          <table className="w-full text-left">
             <thead>
                <tr className="text-[10px] font-black text-gray-500 uppercase tracking-widest border-b border-white/5">
-                  <th className="px-8 py-6">Order ID</th>
+                  <th className="px-8 py-6">ID Commande</th>
                   <th className="px-8 py-6">Date</th>
-                  <th className="px-8 py-6">Customer</th>
-                  <th className="px-8 py-6">Payment Method</th>
-                  <th className="px-8 py-6">Amount</th>
-                  <th className="px-8 py-6">Status</th>
+                  <th className="px-8 py-6">Client</th>
+                  <th className="px-8 py-6">Méthode de Paiement</th>
+                  <th className="px-8 py-6">Montant</th>
+                  <th className="px-8 py-6">Statut</th>
                   <th className="px-8 py-6">Actions</th>
                </tr>
             </thead>
@@ -173,10 +167,10 @@ export default function OrderManagementPage() {
 
          {/* Pagination */}
          <div className="p-8 flex items-center justify-between bg-black/20">
-            <span className="text-xs text-gray-500 font-bold">Page 1 of 16</span>
+            <span className="text-xs text-gray-500 font-bold">Page 1 sur 16</span>
             <div className="flex gap-2">
-               <button className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-gray-500 cursor-not-allowed">Previous</button>
-               <button className="px-4 py-2 bg-[#1476D1] border border-blue-500 rounded-lg text-xs font-bold text-white hover:bg-blue-600">Next</button>
+               <button className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-gray-500 cursor-not-allowed">Précédent</button>
+               <button className="px-4 py-2 bg-[#1476D1] border border-blue-500 rounded-lg text-xs font-bold text-white hover:bg-blue-600">Suivant</button>
             </div>
          </div>
       </div>

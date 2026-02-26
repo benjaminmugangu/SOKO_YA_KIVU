@@ -30,11 +30,11 @@ export default function Navbar() {
       <div className="bg-[#003B5C] py-2 text-white text-[10px] font-bold text-center flex items-center justify-center gap-6 overflow-hidden">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-3 h-3" />
-          SECURE ESCROW: FUNDS HELD SAFELY UNTIL YOU CONFIRM DELIVERY
+          SECURE ESCROW : FONDS SÉCURISÉS JUSQU'À VOTRE CONFIRMATION
         </div>
         <div className="hidden md:flex items-center gap-4 border-l border-white/20 pl-6">
-          <span>VERIFIED LOGISTICS</span>
-          <span>MOBILE MONEY INTEGRATED</span>
+          <span>LOGISTIQUE VÉRIFIÉE</span>
+          <span>MOBILE MONEY INTÉGRÉ</span>
         </div>
       </div>
 
@@ -55,12 +55,12 @@ export default function Navbar() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input 
                 type="text" 
-                placeholder="Search for electronics, local crafts, fashion..." 
+                placeholder="Rechercher des produits, artisanat local, mode..." 
                 className="w-full bg-gray-50 border border-gray-200 border-r-0 rounded-l-xl pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all"
               />
             </div>
             <button className="bg-brand-primary text-white px-8 py-2.5 rounded-r-xl font-bold text-sm hover:bg-brand-primary-dark transition-colors">
-              Search
+              Rechercher
             </button>
           </div>
 
@@ -107,7 +107,7 @@ export default function Navbar() {
                   </Link>
                   <Link href="/admin" className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors">
                     <LayoutGrid className="w-4 h-4 text-gray-400" />
-                    Admin Panel
+                    Panneau Admin
                   </Link>
                   <Link href="/auth/kyc" className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors">
                     <ShieldCheck className="w-4 h-4 text-gray-400" />

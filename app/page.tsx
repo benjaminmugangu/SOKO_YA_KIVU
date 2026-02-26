@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const categories = [
-    'Electronics', 'Fashion & Apparel', 'Local DRC Crafts', 'Home & Living', 'Health & Beauty', 'Agro & Food'
+    'Électronique', 'Mode & Vêtements', 'Artisanat Local RDC', 'Maison & Décoration', 'Santé & Beauté', 'Agro-Alimentaire'
   ];
 
   return (
@@ -21,7 +21,7 @@ export default function Home() {
           {/* Sidebar */}
           <aside className="w-full lg:w-64 shrink-0">
             <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-sm">
-              <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-6">Categories</h3>
+              <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-6">Catégories</h3>
               <nav className="space-y-4">
                 {categories.map((cat) => (
                   <button 
@@ -29,18 +29,18 @@ export default function Home() {
                     className={`w-full flex items-center justify-between text-sm font-bold py-2 transition-colors ${cat === 'Local DRC Crafts' ? 'text-brand-primary' : 'text-gray-600 hover:text-brand-primary'}`}
                   >
                     <span>{cat}</span>
-                    <ChevronRight className={`w-4 h-4 ${cat === 'Local DRC Crafts' ? 'text-brand-primary' : 'text-gray-300'}`} />
+                    <ChevronRight className={`w-4 h-4 ${cat === 'Artisanat Local RDC' ? 'text-brand-primary' : 'text-gray-300'}`} />
                   </button>
                 ))}
               </nav>
             </div>
 
             <div className="mt-6 p-6 rounded-3xl bg-green-50 border border-green-100 border-l-4 border-l-green-500">
-               <p className="text-[10px] font-black text-green-700 uppercase mb-2">Trust Program</p>
+               <p className="text-[10px] font-black text-green-700 uppercase mb-2">Programme de Confiance</p>
                <p className="text-xs text-green-800 leading-relaxed font-medium">
-                 Shop with confidence. 100% money-back guarantee via our escrow partner.
+                 Achetez en toute confiance. Garantie de remboursement via notre partenaire de confiance.
                </p>
-               <button className="text-green-700 text-[10px] font-black mt-3 hover:underline">LEARN MORE →</button>
+               <button className="text-green-700 text-[10px] font-black mt-3 hover:underline">EN SAVOIR PLUS →</button>
             </div>
           </aside>
 
@@ -56,19 +56,19 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#003B5C]/90 to-transparent flex items-center p-12">
                 <div className="max-w-md">
-                  <p className="text-brand-primary font-black text-xs uppercase tracking-widest mb-4">Promoting Local Excellence</p>
+                  <p className="text-brand-primary font-black text-xs uppercase tracking-widest mb-4">Promouvoir l'Excellence Locale</p>
                   <h2 className="text-4xl md:text-5xl font-display font-black text-white leading-tight mb-6">
-                    Support Verified <br /> DRC Artisans Directly.
+                    Soutenez Directement <br /> les Artisans de la RDC.
                   </h2>
                   <p className="text-gray-300 mb-8 text-sm leading-relaxed">
-                    Discover high-quality local crafts and modern essentials, protected by our escrow payment system.
+                    Découvrez l'artisanat local de haute qualité, sécurisé par notre système de paiement escrow.
                   </p>
                   <div className="flex gap-4">
                     <button className="bg-brand-primary text-white px-8 py-3.5 rounded-xl font-black text-sm hover:bg-brand-primary-dark transition-all">
-                      Shop Featured
+                      Découvrir
                     </button>
                     <Link href="/auth/signup" className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-3.5 rounded-xl font-black text-sm hover:bg-white/20 transition-all flex items-center">
-                      Sell Your Products
+                      Vendre vos Produits
                     </Link>
                   </div>
                 </div>
@@ -78,9 +78,9 @@ export default function Home() {
             {/* New Arrivals Grid */}
             <section className="mt-12">
               <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-display font-black text-[#003B5C]">New Arrivals</h3>
+                <h3 className="text-2xl font-display font-black text-[#003B5C]">Nouveautés</h3>
                 <button className="text-brand-primary text-sm font-black flex items-center gap-1 hover:underline">
-                  View All <ChevronRight className="w-4 h-4" />
+                  Voir Tout <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
 
@@ -94,10 +94,10 @@ export default function Home() {
             {/* Trust Metrics Bar */}
             <section className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
                {[
-                 { label: 'Verified Sellers', value: '5,000+' },
-                 { label: 'Average Dispatch', value: '24h' },
-                 { label: 'Escrow Secure', value: '100%' },
-                 { label: 'Local Presence', value: 'Kin/Gom' }
+                 { label: 'Vendeurs Vérifiés', value: '5,000+' },
+                 { label: 'Expédition Rapide', value: '24h' },
+                 { label: 'Séquestre Sécurisé', value: '100%' },
+                 { label: 'Présence Locale', value: 'Kin/Gom' }
                ].map((stat) => (
                  <div key={stat.label} className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
                    <p className="text-3xl font-display font-black text-brand-primary mb-1">{stat.value}</p>
@@ -125,27 +125,27 @@ export default function Home() {
           </div>
 
           <div>
-            <h4 className="text-xs font-black text-gray-900 uppercase tracking-widest mb-6">Shop & Explore</h4>
+            <h4 className="text-xs font-black text-gray-900 uppercase tracking-widest mb-6">Boutique & Exploration</h4>
             <ul className="space-y-3 text-xs text-gray-500 font-bold">
-              <li><Link href="#" className="hover:text-brand-primary">Featured Deals</Link></li>
-              <li><Link href="#" className="hover:text-brand-primary">New Arrivals</Link></li>
-              <li><Link href="#" className="hover:text-brand-primary">Verified Stores</Link></li>
-              <li><Link href="#" className="hover:text-brand-primary">Local Artisans</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Offres Vedettes</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Nouveautés</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Boutiques Vérifiées</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Artisans Locaux</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-black text-gray-900 uppercase tracking-widest mb-6">Escrow & Safety</h4>
+            <h4 className="text-xs font-black text-gray-900 uppercase tracking-widest mb-6">Sécurité & Escrow</h4>
             <ul className="space-y-3 text-xs text-gray-500 font-bold">
-              <li><Link href="#" className="hover:text-brand-primary">How Escrow Works</Link></li>
-              <li><Link href="#" className="hover:text-brand-primary">Buyer Protection</Link></li>
-              <li><Link href="#" className="hover:text-brand-primary">Refund Policy</Link></li>
-              <li><Link href="#" className="hover:text-brand-primary">Report a Seller</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Comment ça Marche</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Protection Acheteur</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Remboursement</Link></li>
+              <li><Link href="#" className="hover:text-brand-primary">Signaler un Vendeur</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-black text-gray-900 uppercase tracking-widest mb-6">Payment Partners</h4>
+            <h4 className="text-xs font-black text-gray-900 uppercase tracking-widest mb-6">Partenaires de Paiement</h4>
             <div className="grid grid-cols-2 gap-3">
                {['Orange Money', 'M-Pesa', 'Airtel Money', 'Mobile Cash'].map((m) => (
                  <div key={m} className="bg-gray-50 border border-gray-100 p-3 rounded-xl flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all cursor-crosshair shadow-sm">

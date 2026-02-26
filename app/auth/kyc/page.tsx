@@ -32,7 +32,7 @@ export default function KYCPage() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
-          {['How it works', 'Security', 'Support'].map((link) => (
+          {['Comment ça marche', 'Sécurité', 'Assistance'].map((link) => (
             <button key={link} className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-gray-600">
               {link}
             </button>
@@ -74,9 +74,9 @@ export default function KYCPage() {
                 <div className="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
                   <ShieldCheck className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h1 className="text-3xl font-black text-[#1E293B] mb-4">Identity Verification</h1>
+                <h1 className="text-3xl font-black text-[#1E293B] mb-4">Vérification d'Identité</h1>
                 <p className="text-sm text-gray-500 font-medium leading-relaxed max-w-md mx-auto">
-                  To ensure secure escrow transactions and prevent fraud, please verify your identity.
+                  Pour garantir des transactions escrow sécurisées et prévenir la fraude, veuillez vérifier votre identité.
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ export default function KYCPage() {
               className="space-y-8"
             >
               <div className="bg-white rounded-[48px] p-12 shadow-xl shadow-gray-200/50 border border-gray-50">
-                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Select Document Type</h2>
+                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Sélectionner le Type de Document</h2>
                 <div className="grid gap-4">
                   {[
                     { id: 'id_card', name: 'Carte d\'Electeur / ID', icon: FileText },
@@ -145,20 +145,20 @@ export default function KYCPage() {
 
               {/* Upload Area */}
               <div className="bg-white rounded-[48px] p-12 shadow-xl shadow-gray-200/50 border border-gray-50">
-                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Upload Document</h2>
+                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Télécharger le Document</h2>
                 <div className="border-2 border-dashed border-gray-200 rounded-[32px] p-14 text-center group hover:border-brand-primary/50 transition-colors cursor-pointer">
                   <Upload className="w-12 h-12 text-gray-300 mx-auto mb-4 group-hover:text-brand-primary transition-colors" />
-                  <p className="font-black text-sm text-[#1E293B] mb-2">Click to upload or drag and drop</p>
-                  <p className="text-xs text-gray-400 font-medium">Front side of your ID card</p>
-                  <p className="text-[10px] text-gray-300 font-bold mt-2">Supported: JPG, PNG, PDF (Max 5MB)</p>
+                  <p className="font-black text-sm text-[#1E293B] mb-2">Cliquez pour télécharger ou glissez-déposez</p>
+                  <p className="text-xs text-gray-400 font-medium">Recto de votre carte d'identité</p>
+                  <p className="text-[10px] text-gray-300 font-bold mt-2">Supportés : JPG, PNG, PDF (Max 5Mo)</p>
                 </div>
 
                 {/* Error state example */}
                 <div className="mt-4 flex items-start gap-3 bg-red-50 border border-red-100 rounded-2xl p-4">
                   <AlertTriangle className="w-5 h-5 text-red-500 shrink-0" />
                   <div>
-                    <p className="text-xs font-black text-red-600">Invalid file format</p>
-                    <p className="text-[10px] text-red-400 font-medium mt-0.5">Please upload a high-quality JPG, PNG, or PDF file.</p>
+                    <p className="text-xs font-black text-red-600">Format de fichier invalide</p>
+                    <p className="text-[10px] text-red-400 font-medium mt-0.5">Veuillez télécharger un fichier JPG, PNG ou PDF de haute qualité.</p>
                   </div>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function KYCPage() {
               <div className="flex items-start gap-3 bg-blue-50 border border-blue-100 rounded-2xl p-5">
                 <Info className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
                 <p className="text-[10px] text-gray-500 font-medium leading-relaxed">
-                  <span className="font-black text-gray-700">Why is this required?</span> As a secure escrow platform in the DRC, we are legally required to verify the identity of our users to prevent money laundering and ensure the safety of all mobile money transactions (M-Pesa, Airtel Money, Orange Money).
+                  <span className="font-black text-gray-700">Pourquoi est-ce requis ?</span> En tant que plateforme escrow sécurisée en RDC, nous sommes légalement tenus de vérifier l'identité de nos utilisateurs pour prévenir le blanchiment d'argent et garantir la sécurité de toutes les transactions Mobile Money (M-Pesa, Airtel Money, Orange Money).
                 </p>
               </div>
 

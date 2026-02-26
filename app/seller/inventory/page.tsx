@@ -22,9 +22,9 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const inventoryStats = [
-  { label: 'Total Products', value: '142', trend: '+4 this month', trendColor: 'text-green-500' },
-  { label: 'Active Listings', value: '128', badge: 'Escrow Active', badgeColor: 'bg-blue-50 text-[#1476D1]' },
-  { label: 'Low Stock Alerts', value: '7', valueColor: 'text-red-500' },
+  { label: 'Total Produits', value: '142', trend: '+4 ce mois', trendColor: 'text-green-500' },
+  { label: 'Annonces Actives', value: '128', badge: 'Escrow Actif', badgeColor: 'bg-blue-50 text-[#1476D1]' },
+  { label: 'Alertes Stock Faible', value: '7', valueColor: 'text-red-500' },
 ];
 
 const inventoryProducts = [
@@ -72,15 +72,15 @@ export default function InventoryPage() {
             <ChevronDown className="w-3 h-3 -rotate-90" />
             <span className="text-gray-600">Inventory</span>
           </nav>
-          <h1 className="text-3xl font-black text-[#1E293B] tracking-tight">Product Management</h1>
-          <p className="text-gray-500 text-sm mt-1">Monitor and manage your DRC market catalog</p>
+          <h1 className="text-3xl font-black text-[#1E293B] tracking-tight">Gestion des Produits</h1>
+          <p className="text-gray-500 text-sm mt-1">Gérez votre catalogue sur le marché RDC</p>
         </div>
         
         <div className="relative w-full md:w-96">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input 
             type="text" 
-            placeholder="Search products, SKUs..." 
+            placeholder="Rechercher des produits, SKUs..." 
             className="w-full bg-white border border-gray-200 rounded-2xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/20 shadow-sm"
           />
         </div>
@@ -104,10 +104,10 @@ export default function InventoryPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex gap-4">
           <button className="bg-white border border-gray-200 px-4 py-2.5 rounded-xl text-xs font-bold text-gray-600 flex items-center gap-2 hover:bg-gray-50">
-            All Categories <ChevronDown className="w-4 h-4" />
+            Toutes Catégories <ChevronDown className="w-4 h-4" />
           </button>
           <button className="bg-white border border-gray-200 px-4 py-2.5 rounded-xl text-xs font-bold text-gray-600 flex items-center gap-2 hover:bg-gray-50">
-            All Status <ChevronDown className="w-4 h-4" />
+            Tous Statuts <ChevronDown className="w-4 h-4" />
           </button>
         </div>
         
@@ -116,7 +116,7 @@ export default function InventoryPage() {
           className="bg-brand-primary text-white px-6 py-3 rounded-2xl font-black text-sm shadow-xl shadow-brand-primary/20 hover:scale-[1.02] transition-all flex items-center gap-2"
         >
           <Plus className="w-4 h-4" />
-          Add New Product
+          Ajouter un Produit
         </button>
       </div>
 
@@ -157,11 +157,11 @@ export default function InventoryPage() {
                 <div className="flex items-center gap-2">
                    <Package className={`w-4 h-4 ${product.status === 'Low Stock' ? 'text-red-500' : 'text-gray-400'}`} />
                    <span className={`text-xs font-bold ${product.status === 'Low Stock' ? 'text-red-600' : 'text-gray-600'}`}>
-                     {product.stock === 0 ? 'Not published' : `${product.stock} in stock`}
+                     {product.stock === 0 ? 'Non publié' : `${product.stock} en stock`}
                    </span>
                 </div>
                 <button className={`text-xs font-black flex items-center gap-1 hover:underline ${product.status === 'Low Stock' ? 'text-brand-primary' : 'text-brand-primary'}`}>
-                  {product.status === 'Low Stock' ? 'Restock' : 'Edit'} 
+                  {product.status === 'Low Stock' ? 'Réapprovisionner' : 'Modifier'} 
                   {product.status === 'Low Stock' ? null : <Edit2 className="w-3 h-3 ml-1" />}
                 </button>
               </div>
@@ -170,7 +170,7 @@ export default function InventoryPage() {
               <div className="px-6 pb-2">
                  <div className="bg-red-50 text-red-600 text-[10px] font-black p-2 rounded-xl flex items-center gap-2 border border-red-100">
                     <AlertTriangle className="w-3 h-3" />
-                    Only {product.stock} left!
+                    Plus que {product.stock} !
                  </div>
               </div>
             )}

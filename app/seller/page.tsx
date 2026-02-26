@@ -3,30 +3,25 @@
 import React from 'react';
 import { 
   TrendingUp, 
-  ShieldCheck, 
-  Lock,
   Bolt,
   Search,
   Filter,
-  MoreVertical,
-  ChevronRight,
   ShieldPlus
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const stats = [
   { 
-    label: 'Total Sales', 
+    label: 'Ventes Totales', 
     value: '$12,450.00', 
     sub: 'CDF ≈ 31,125,000',
     icon: LayoutGridIcon, 
-    trend: '12.5% increase vs last month',
+    trend: 'Augmentation de 12.5%',
     color: 'text-[#1476D1]'
   },
   { 
-    label: 'Pending Escrow', 
+    label: 'Séquestre en Attente', 
     value: '$2,140.50', 
-    sub: 'Locked in 14 active transactions',
+    sub: 'Bloqué dans 14 transactions',
     icon: LockIcon, 
     trend: null,
     color: 'text-[#F59E0B]'
@@ -34,8 +29,8 @@ const stats = [
 ];
 
 const transactions = [
-  { id: '#DRC-1029', customer: 'M. Kabila', date: 'Oct 24, 2023', amount: '$450.00', method: 'M-Pesa', status: 'IN ESCROW', statusColor: 'bg-[#FFEDD5] text-[#9A3412]' },
-  { id: '#DRC-1028', customer: 'S. Mutombo', date: 'Oct 22, 2023', amount: '$1,200.00', method: 'Airtel', status: 'SHIPPED', statusColor: 'bg-[#DBEAFE] text-[#1E40AF]' },
+  { id: '#DRC-1029', customer: 'M. Kabila', date: '24 Oct 2023', amount: '$450.00', method: 'M-Pesa', status: 'EN SÉQUESTRE', statusColor: 'bg-[#FFEDD5] text-[#9A3412]' },
+  { id: '#DRC-1028', customer: 'S. Mutombo', date: '22 Oct 2023', amount: '$1,200.00', method: 'Airtel', status: 'EXPÉDIÉ', statusColor: 'bg-[#DBEAFE] text-[#1E40AF]' },
 ];
 
 export default function PayoutsPage() {
@@ -76,11 +71,11 @@ export default function PayoutsPage() {
            <div className="absolute top-6 right-6 w-12 h-12 bg-[#1476D1] rounded-xl flex items-center justify-center text-white shadow-lg">
               <Bolt className="w-6 h-6 fill-current" />
            </div>
-           <p className="text-[#1476D1] text-xs font-black uppercase tracking-[0.2em] mb-4">Available for Withdrawal</p>
+           <p className="text-[#1476D1] text-xs font-black uppercase tracking-[0.2em] mb-4">Disponible pour Retrait</p>
            <h3 className="text-4xl font-black text-[#1E293B] mb-8 tracking-tight">$4,812.25</h3>
            
            <button className="w-full bg-[#1476D1] text-white py-4 rounded-xl font-bold text-sm shadow-xl shadow-[#1476D1]/30 hover:bg-[#0E5AA1] transition-all mb-6">
-             Withdraw via Mobile Money
+             Retrait via Mobile Money
            </button>
            
            <div className="flex items-center justify-center gap-4 grayscale opacity-60">
@@ -96,8 +91,8 @@ export default function PayoutsPage() {
         <div className="lg:col-span-2 bg-white rounded-[40px] border border-[#E2E8F0] p-8 shadow-sm h-[400px] flex flex-col">
            <div className="flex items-center justify-between mb-8">
               <div>
-                <h4 className="text-xl font-bold text-[#1E293B]">Sales Performance</h4>
-                <p className="text-[#64748B] text-sm">Revenue and order volume trends</p>
+                <h4 className="text-xl font-bold text-[#1E293B]">Performance des Ventes</h4>
+                <p className="text-[#64748B] text-sm">Tendances des revenus et des commandes</p>
               </div>
               <div className="flex bg-[#F1F5F9] p-1 rounded-xl">
                  <button className="px-4 py-2 bg-white text-[#1E293B] rounded-lg text-xs font-bold shadow-sm">Weekly</button>
@@ -121,15 +116,15 @@ export default function PayoutsPage() {
         <div className="bg-[#00171F] p-8 rounded-[40px] text-white relative flex flex-col">
            <div className="flex items-center gap-2 text-[#1476D1] mb-6">
               <ShieldPlus className="w-5 h-5 fill-current" />
-              <span className="text-[10px] font-black uppercase tracking-widest">Trust & Security</span>
+              <span className="text-[10px] font-black uppercase tracking-widest">Confiance & Sécurité</span>
            </div>
-           <h4 className="text-2xl font-bold mb-4 leading-tight">Your funds are safe with Escrow Shield.</h4>
+           <h4 className="text-2xl font-bold mb-4 leading-tight">Vos fonds sont sécurisés avec Escrow Shield.</h4>
            <p className="text-gray-400 text-sm leading-relaxed mb-12 font-medium">
-             Payments are only released after the buyer confirms receipt or 48h after confirmed delivery. This builds trust and reduces fraud in the market.
+             Les paiements ne sont débloqués qu&apos;après confirmation de réception par l&apos;acheteur ou 48h après livraison. Cela bâtit la confiance.
            </p>
            
            <div className="mt-auto">
-              <button className="text-[#1476D1] text-xs font-bold hover:underline mb-8">Learn more about the release cycle</button>
+              <button className="text-[#1476D1] text-xs font-bold hover:underline mb-8">En savoir plus sur le cycle de versement</button>
               <div className="w-full h-48 bg-gradient-to-t from-[#002A38] to-transparent rounded-t-[40px]" />
            </div>
         </div>
@@ -138,7 +133,7 @@ export default function PayoutsPage() {
       {/* Recent Transactions Table */}
       <div className="bg-white rounded-[40px] border border-[#E2E8F0] shadow-sm overflow-hidden">
          <div className="px-8 py-6 border-b border-[#E2E8F0] flex items-center justify-between">
-            <h4 className="text-xl font-bold text-[#1E293B]">Recent Transactions</h4>
+            <h4 className="text-xl font-bold text-[#1E293B]">Transactions Récentes</h4>
             <div className="flex items-center gap-4">
                <div className="relative">
                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]" />
@@ -153,12 +148,12 @@ export default function PayoutsPage() {
          <table className="w-full text-left">
             <thead>
                <tr className="bg-[#F8FAFC] text-[10px] font-black text-[#94A3B8] uppercase tracking-widest">
-                  <th className="px-8 py-4">Order ID</th>
-                  <th className="px-8 py-4">Customer</th>
+                  <th className="px-8 py-4">ID Commande</th>
+                  <th className="px-8 py-4">Client</th>
                   <th className="px-8 py-4">Date</th>
-                  <th className="px-8 py-4">Amount</th>
-                  <th className="px-8 py-4">Method</th>
-                  <th className="px-8 py-4">Status</th>
+                  <th className="px-8 py-4">Montant</th>
+                  <th className="px-8 py-4">Méthode</th>
+                  <th className="px-8 py-4">Statut</th>
                   <th className="px-8 py-4 text-right">Action</th>
                </tr>
             </thead>
@@ -186,7 +181,7 @@ export default function PayoutsPage() {
                         </span>
                      </td>
                      <td className="px-8 py-6 text-right">
-                        <button className="text-[#1476D1] text-xs font-bold hover:underline">Details</button>
+                        <button className="text-[#1476D1] text-xs font-bold hover:underline">Détails</button>
                      </td>
                   </tr>
                ))}
