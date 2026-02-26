@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingCart, Bell, Search, ChevronDown, ShieldCheck, User, LogIn, Store, Settings, LogOut, LayoutGrid } from 'lucide-react';
+import { ShoppingCart, Bell, Search, ChevronDown, ShieldCheck, Store, LayoutGrid, LogOut } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 export default function Navbar() {
@@ -27,26 +27,26 @@ export default function Navbar() {
   return (
     <div className="w-full">
       {/* Top Banner */}
-      <div className="bg-[#003B5C] py-2 text-white text-[10px] font-bold text-center flex items-center justify-center gap-6 overflow-hidden">
+      <div className="bg-brand-dark py-2 text-white text-[10px] font-black text-center flex items-center justify-center gap-6 overflow-hidden letter-spacing-widest">
         <div className="flex items-center gap-2">
-          <ShieldCheck className="w-3 h-3" />
+          <ShieldCheck className="w-3 h-3 text-brand-secondary" />
           SECURE ESCROW : FONDS SÉCURISÉS JUSQU'À VOTRE CONFIRMATION
         </div>
-        <div className="hidden md:flex items-center gap-4 border-l border-white/20 pl-6">
-          <span>LOGISTIQUE VÉRIFIÉE</span>
-          <span>MOBILE MONEY INTÉGRÉ</span>
+        <div className="hidden md:flex items-center gap-4 border-l border-white/20 pl-6 uppercase tracking-widest">
+          <span>Logistique Vérifiée</span>
+          <span>Mobile Money Intégré</span>
         </div>
       </div>
 
       {/* Main Nav */}
-      <nav className="bg-white border-b border-gray-200 py-4 shadow-sm">
+      <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 py-3 transition-all duration-300">
         <div className="container mx-auto px-4 flex items-center justify-between gap-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+          <Link href="/" className="flex items-center gap-3 shrink-0 group">
+            <div className="w-10 h-10 bg-brand-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-brand-primary/20 group-hover:scale-105 transition-transform">
                <ShieldCheck className="w-6 h-6" />
             </div>
-            <span className="text-xl font-display font-black text-[#003B5C] tracking-tight">SOKO YA KIVU</span>
+            <span className="text-xl font-display font-black text-brand-dark tracking-tight">SOKO YA KIVU</span>
           </Link>
 
           {/* Search */}
@@ -56,10 +56,10 @@ export default function Navbar() {
               <input 
                 type="text" 
                 placeholder="Rechercher des produits, artisanat local, mode..." 
-                className="w-full bg-gray-50 border border-gray-200 border-r-0 rounded-l-xl pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all"
+                className="w-full bg-gray-50/50 border border-gray-200 border-r-0 rounded-l-2xl pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:bg-white focus:ring-1 focus:ring-brand-primary/20 transition-all font-medium"
               />
             </div>
-            <button className="bg-brand-primary text-white px-8 py-2.5 rounded-r-xl font-bold text-sm hover:bg-brand-primary-dark transition-colors">
+            <button className="bg-brand-primary text-white px-8 py-2.5 rounded-r-2xl font-bold text-sm hover:bg-brand-primary-dark shadow-lg shadow-brand-primary/10 active:scale-95 transition-all">
               Rechercher
             </button>
           </div>
@@ -86,19 +86,19 @@ export default function Navbar() {
             <div className="relative" ref={menuRef}>
               <button 
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="flex items-center gap-2 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full text-sm font-bold text-gray-700 hover:bg-gray-100 transition-all"
+                className="flex items-center gap-2 bg-gray-50/80 border border-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:bg-white hover:shadow-md transition-all active:scale-95"
               >
-                <div className="w-6 h-6 bg-brand-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-[10px] text-brand-primary font-bold">JD</span>
+                <div className="w-7 h-7 bg-brand-primary rounded-full flex items-center justify-center shadow-sm">
+                  <span className="text-[10px] text-white font-bold">JD</span>
                 </div>
-                <span className="hidden sm:inline">Mon Compte</span>
+                <span className="hidden sm:inline font-bold">Mon Compte</span>
                 <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${menuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {menuOpen && (
                 <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-gray-100 rounded-2xl shadow-2xl shadow-gray-200/50 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-4 py-3 border-b border-gray-100">
-                    <p className="text-sm font-black text-[#1E293B]">Jean Dupont</p>
+                    <p className="text-sm font-black text-brand-dark">Jean Dupont</p>
                     <p className="text-[10px] text-gray-400 font-medium">jean@email.com</p>
                   </div>
                   <Link href="/seller" className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-gray-50 font-medium transition-colors">
